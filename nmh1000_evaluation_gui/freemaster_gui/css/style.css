@@ -1,0 +1,186 @@
+body {
+  background: #EAEAEA;
+  font-family: Sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1,
+h2,
+h3 {
+  color: #1D00A3;
+}
+
+img {
+  border: 0px;
+  padding-right: 15px;
+}
+
+a {
+  color: #0000BA;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.header {
+  display: block;
+  margin: 0px;
+  background: #44627C;
+  border-bottom: 3px solid black;
+}
+
+.header h1 {
+  color: white;
+  padding: 15px;
+  margin: 0;
+}
+
+.body {
+  padding: 10px;
+}
+
+.footer {
+  border-top: 1px solid silver;
+  padding: 10px;
+  font-size: 8pt;
+  width: 100%;
+}
+
+.simple li {
+  padding-top: 10px;
+}
+
+.b-3 {
+  border-width: 3px !important;
+  ;
+}
+
+.table-container {
+  font-size: 0.75rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.table-container .col-table,
+.table-container .col-table-2 {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.table-container .row,
+.tree-container .row {
+  background-color: #EAEAEA;
+}
+
+.table-container .row.editable {
+  background-color: burlywood;
+  color: crimson;
+}
+
+.table-container .row.editable>div.modified {
+  background-color: #42d42f;
+  color: #256e1b;
+}
+
+.table-container .row.bordered {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.table-container .row.bordered:not(:first-child) {
+  background-color: white;
+}
+
+.col-table {
+  -ms-flex: 0 0 12.5%;
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+}
+
+.col-table-2 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.tree-container {
+  font-size: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.tree-container .row:not(:first-child) {
+  background-color: white;
+}
+
+.tr.row > .item {
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+}
+
+.tr.row > .item::before {
+  content: "\2610";
+  display: inline-block;
+  margin-left: 16px;
+  font-family: none;
+  font-size: 14px;
+}
+
+.tr.row > .item.checked::before {
+  content: "\2611";
+}
+
+.tree-container .row div {
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.15);
+  padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tree-container .row div:not(:first-child) {
+  text-align: center;
+}
+
+.form-controls button {
+  margin-top: 0.5rem;
+}
+
+.form-controls label {
+  margin-bottom: 0;
+}
+
+button {
+  position: relative;
+}
+
+button img {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 42px;
+  height: 26px;
+}
+
+button:hover img {
+  top: 0;
+  width: 52px;
+  height: 36px;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

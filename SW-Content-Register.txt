@@ -1,0 +1,137 @@
+Name: dm-freemaster-nmh1000-evaluation-gui-firmware
+Version: 1.0
+Outgoing License: LA_OPT_NXP_Software_License v53 - Production Use, Section 2.3 applies
+License File: LICENSE
+Description: This example demonstrates NMH1000 magnetic switch sensor evaluation GUI using ISSDK and FreeMASTER for FRDM-MCXN947 and FRDM-MCXA153.
+Release location: https://github.com/nxp-appcodehub/dm-freemaster-nmh1000-evaluation-gui-firmware
+Origin: NXP (Proprietary)
+        NXP (BSD-3-Clause)
+        CMSIS (Apache-2.0)                - https://github.com/ARM-software/CMSIS_5/releases/tag/5.8.0
+		bootstrap (MIT License)           - https://github.com/twbs/bootstrap/tree/main
+		Chart.js (MIT License)            - https://github.com/chartjs/Chart.js/tree/master
+		D3.js (ISC License)               - https://github.com/d3/d3/blob/master/
+		FileSaver (MIT License)           - https://github.com/eligrey/FileSaver.js/blob/master/
+		gauge.min (MIT License)           - https://github.com/getgauge/gauge-js/blob/master/
+		jquery (MIT License)              - https://github.com/jquery/jquery/blob/main/
+		Floating UI (MIT License)         - https://github.com/popperjs/popper-core/blob/master/
+
+dm-freemaster-nmh1000-evaluation-gui-firmware
+                           Name: dm-freemaster-nmh1000-evaluation-gui-firmware
+                           Version: 1.0
+                           Description: This example demonstrates NMH1000 magnetic switch evaluation GUI using ISSDK and FreeMASTER for FRDM-MCXN947 and FRDM-MCXA153.
+                           License: Open Source - BSD-3 (https://spdx.org/licenses/BSD-3-Clause.html)
+                           Author: NXP
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\frdmmcxa153\hall_switch_3_click\frdmmcxa153_nmh1000_fmstr\source
+                                     dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\frdmmcxa153\hall_switch_3_click\frdmmcxa153_nmh1000_fmstr\source
+                           Format: source code
+
+MCUXpresso SDK
+                           Name: MCUXpresso SDK
+                           Version: 2.x
+                           Description: NXP's MCUXpresso SDK is a comprehensive software enablement package designed to simplify
+						   and accelerate application development with NXP’s microcontrollers and crossover processors based on
+						   Arm® Cortex®-M cores. Component lib integration examples use MCUXpresso SDK to demonstrate usage.
+                           License: Open Source - BSD-3 (https://spdx.org/licenses/BSD-3-Clause.html)
+                           Author: NXP
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\drivers
+						             dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\device
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\board
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\component
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\utilities
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\startup
+                           Format: source code
+
+ISSDK
+                           Name: IoT Sensing SDK (ISSDK)
+                           Version: 1.7
+                           Description: NXP's IoT Sensing SDK. It combines a set of robust sensor drivers and algorithms
+						   along with example applications. STB-CE_Firmwares are generated using ISSDK sources.
+                           License: Open Source - BSD-3 (https://spdx.org/licenses/BSD-3-Clause.html)
+                           Author: NXP
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\sensors
+						             dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\interfaces
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\gpio_driver
+                           Format: source code
+
+CMSIS
+                           Name: CMSIS
+                           Version: 5.6.0
+                           Description: Vendor-independent hardware abstraction layer for microcontrollers that are based on
+						   Arm® Cortex® processors, distributed by ARM® cores.
+                           License: Apache License 2.0, dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\CMSIS/LICENSE.txt
+                           Author: ARM
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\CMSIS
+                           Format: source code
+						   URL: https://github.com/ARM-software/CMSIS_5/releases/tag/5.6.0
+
+Freemaster
+						   Name: Freemaster tool
+                           Version: 3.2
+                           Description: FreeMASTER communication driver
+                           License: LA_OPT_NXP_Software_License v53 - Production Use, Section 2.3 applies
+                           Author: NXP
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\<mcx board>\hall_switch_3_click\*_project\freemaster
+                           Format: source code
+
+Bootstrap
+                           Name: Bootstrap
+                           Version: 4.3.1
+                           Description: Open-source HTML and CSS templates for UI interface elements such as buttons and forms with JavaScript extensions.
+                           License: MIT License (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+                           Author: Bootstrap Contributors
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\bootstrap.js
+                           Format: javascript source code
+
+Chart
+                           Name: Chart
+                           Version: 2.7.2
+                           Description: Open-source flexible JavaScript charting for designers & developers.
+                           License: MIT License (https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)
+                           Author: Chart.js Contributors
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\Chart.bundle.js
+                           Format: javascript source code
+
+D3
+                           Name: D3
+                           Description: D3 is a JavaScript library for visualizing data using web standards.
+                           License: ISC License (https://github.com/d3/d3/blob/master/LICENSE)
+                           Author: Mike Bostock
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\D3.min.js
+                           Format: javascript source code
+
+FileSaver
+                           Name: FileSaver
+                           Description: FileSaver.js is the solution to saving files on the client-side.
+                           License: MIT License (https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md)
+                           Author: Eli Grey.
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\FileSaver.js
+                           Format: javascript source code
+
+Gauge
+                           Name: Gauge widget
+                           Version: 7.20.0
+                           Description: Javascript language plugin for gauge.
+                           License: MIT License (https://github.com/getgauge/gauge-js/blob/master/LICENSE)
+                           Author: Gauge Contributors
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\gaude.min.js
+                           Format: javascript source code
+
+jQuery
+                           Name: jQuery
+                           Description: jQuery is a fast, small, and feature-rich JavaScript library.
+                           License: MIT License (https://github.com/jquery/jquery/blob/main/LICENSE.txt)
+                           Author: OpenJS Foundation and other contributors, https://openjsf.org/
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\jquery.csv.js
+						             dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\jquery-3.4.1.js
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\jquery-ui-1.12.1.js
+									 dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\jquery.thermometer.js
+                           Format: javascript source code
+
+Floating UI
+                           Name: Popper (Popper is now Floating UI)
+                           Version: 1.15
+                           Description: Tooltip and popover positioning engine.
+                           License: MIT License (https://github.com/popperjs/popper-core/blob/master/LICENSE)
+                           Author: Federico Zivol
+                           Location: dm-freemaster-nmh1000-evaluation-gui-firmware\nmh1000_evaluation_gui\freemaster_gui\js\popper.js
+                           Format: javascript source code

@@ -1,0 +1,29 @@
+<data:item xmlns:data="data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data ../../xsd/alp.xsd" id="dm-freemaster-nmh1000-evaluation-gui-firmware" type="demo" format="projectfile" versionSchema="1.0.0" name="freemaster nmh1000 evaluation gui firmware">
+    <display_title>
+        NMH1000 magnetic switch sensor evaluation GUI using ISSDK and FreeMASTER
+    </display_title>
+    <overview>
+        <![CDATA[This example demonstrates combining ISSDK and FreeMASTER to create NMH1000 magnetic switch evaluation GUI for our customer to evaluate this sensor using sensor development tools with sensor expansion boards.<br />]]>
+    </overview>
+    <toolchains>
+        <toolchain name="mcux"></toolchain>
+    </toolchains>
+    <families>
+        <family name="mcx"></family>
+    </families>
+    <nxp_compatible_hw>
+        <hw id="FRDM-MCXN947"></hw>
+        <hw id="FRDM-MCXA153"></hw>
+    </nxp_compatible_hw>
+    <nxp_ebh_hw>
+        <ebh id="mikroe_hall_switch_3_click"></ebh>
+    </nxp_ebh_hw>
+    <peripherals>
+        <peripheral name="i2c"></peripheral>
+        <peripheral name="uart"></peripheral>
+    </peripherals>
+    <categories>
+        <category name="low_power"></category>
+        <category name="sensor"></category>
+    </categories>
+</data:item>

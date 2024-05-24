@@ -1,0 +1,61 @@
+﻿       'Register Name,Address,Access,Size,Data,Bit-7,Bit-6,Bit-5,Bit-4,Bit-3,Bit-2,Bit-1,Bit-0,Bit-7 Description,Bit-6 Description,Bit-5 Description,Bit-4 Description,Bit-3 Description,Bit-2 Description,Bit-1 Description,Bit-0 Description
+        STATUS,0x00,R,0x08,0x00,OUTPUT,MDO,MDR,-,OP_MODE,-,RST_STAT,OUT_B,"Vout control block state. This bit follows the state of the OUT pin in both cases of V_POL = 0 or 1.
+0: The state of VOUT is driven to VOL; Result of Reset.
+1: The state of VOUT is driven to VOH.","Magnetic data overwrite indicates the validity of the value in register $03. After asserting to 1, the MDO bit retains this value after the register $03 returns to the range of $00 to $1F, until a read operation is performed on register $00. The MDO reasserts if the register $03 is again > $1F.
+0: Register $03 value is within the range $00 to $1F.
+1: Register $03 value is >$1F indicates out-of-range or fault; Result of reset.","Magnetic data ready indicates the value in register $03 is available for read operation. After asserting to 1, the MDR bit retains this value after the register $03 becomes available, until a read operation is performed on register $00. The MDR reasserts if the register $03 is again not available.
+0: $03 data available.
+1: $03 data not available; Result of reset.",,"The read-only OPMODE indicates the mode of the internal state-machine.
+0: Indicates VPP < VSTAND and the device in standalone mode indicating a state machine fault, since the registers are only accessible in the I2C mode.
+1: Indicates VPP ≥ VSTAND and the device in I2C user mode.",,"Reset status indicates the state-machine reset sequence. RST_STAT set to 1 as the device enters POR or soft reset. This bit is cleared to 0 upon reading the
+register $00. After asserting to 1, the RST_STAT bit retains this value after the exit of POR or soft rest, until a read operation is performed on register $00. The RST_STAT reasserts if POR or soft reset is entered.
+0: Reset sequence complete and read operation performed on register $00.
+1: Reset sequence not complete; Result of reset.","Output buffer indicates a latched state of the OUT pin after a transition from
+either Asserted to Clear or Clear to Asserted. After asserting to 1, or clearing
+to 0, the OUT_B bit retains this value until a read operation is performed on
+register $00. This bit is intended to allow the user or tester to check for a
+transition while the actual OUT pin or OUTPUT bit may have changed state
+again between checks."
+        CONTROL_REG1,0x01,R/W,0x08,0x00,-,-,V_POL,I2C_DIS,AUTO,ONE_SHOT,-,RST,,,"V_POL provides control of the user-defined OUT pin and resultant OUT_B register bit assert / clear polarity.
+0: Assert = VOH, Clear = VOL; Result of reset.
+1: Assert = VOL, Clear = VOH.","I2C_DIS provides control of the operating mode ""on-the-fly"" after the device exits POR or Soft Reset. I2C_DIS allows the user to force the device into standalone mode from the I2C mode.
+0: Write to 0 has no effect; Read of 0 indicates I2C mode; Result of reset. 
+1: Write to 1 forces the device from I2C mode to standalone mode; Read of 1 indicates a state machine fault, since the registers are only accessible in the I2C mode.","AUTO provides control of the state machine to enter a sequential autonomous mode cycling from sleep to compare to Vout control, then back to sleep, for example. The sequence is halted when the AUTO is written to 0.
+0: Write to 0 halts or prevents autonomous mode; Read of 0 indicates that autonomous mode is not active; Result of reset.
+1: Write to 1 starts the autonomous mode; Read of 1 indicates that autonomous mode is active.","ONE_SHOT provides control of the state machine to trigger a single sequence of compare to Vout control, then halt. The bit clears upon the sequence being completed.
+0: Write to 0 has no effect; Read of 0 indicates One-Shot is not active; Result of reset.
+1: Write to 1 triggers a one-shot sequence; Read of 1 has no effect.",,"RST provides I2C access to force an internal device soft reset:
+0: No reset is forced.
+1: Internal device reset is forced."
+        RESERVED,0x02,R,0x08,0x00,-,-,-,-,-,-,-,-,Reserved,,,,,,,
+        OUT_M_REG,0x03,R,0x08,0x00,MAG_DATA[7],MAG_DATA[6],MAG_DATA[5],MAG_DATA[4],MAG_DATA[3],MAG_DATA[2],-,-,"MAG_DATA[7:2] indicates the magnetic field strength, G.
+$00 0 G; Result of reset.
+$01 Lowest in-range magnetic field strength.
+$1F Highest in-range magnetic field strength.",,,,,,,
+        USER_ASSERT_THRESH,0x04,R,0x08,0x00,UA_THRES[7],UA_THRES[6],UA_THRES[5],UA_THRES[4],UA_THRES[3],-,-,-,"In l2C mode, USER_ASSERT _ THRESH[7:3] provides the capability for the user to override the fixed threshold controlling the output assert condition, in units of B delta G/LSB.
+$00 0 G; Result of reset.
+$01 Lowest in-range magnetic field to assert the output.
+$1F Highest in-range magnetic field to assert the output.",,,,,,,
+        USER_CLEAR_THRESH,0x05,R,0x08,0x00,UCLR_THRESH[7],UCLR_THRESH[6],USER_CLEAR_THRESH[5],USER_CLEAR_THRESH[4],USER_CLEAR_THRESH[3],-,-,-,"In I2C mode, USER_CLEAR_THRESH[7:3] provides the capability for the user to override the fixed threshold controlling the output clear condition, in units of BΔ G/LSB.
+$00 0 G; Result of reset.
+$01 Lowest in-range magnetic field to clear the output.
+$1F Highest in-range magnetic field to clear the output.",,,,,,,
+        USER_ODR,0x06,R/W,0x08,0x00,-,-,-,-,-,USER_ODR[2],USER_ODR[1],USER_ODR[0],"In I2C mode, USER_ODR[2:0] provides the capability for the user to override the fixed sample rate controlling the sleep-compare-Vout cycle time.
+0 0 0 Low sample rate selected.
+0 0 1 5 x Low sample rate selected.
+0 1 0 Medium sample rate selected.
+0 1 1 5 x Medium sample rate selected.
+1 0 0 High sample rate selected.
+1 0 1 5 x High sample rate selected.
+1 1 0 10 x High sample rate selected.
+1 1 1 Configuration error.",,,,,,,
+        RESERVED,0x07,R,0x08,0x00,-,-,-,-,-,-,-,-,Reserved,,,,,,,
+        WHO_AM_I,0x08,R,0x08,0x00,WHO_AM_I[7],WHO_AM_I[6],WHO_AM_I[5],WHO_AM_I[4],WHO_AM_I[3],WHO_AM_I[2],WHO_AM_I[1],WHO_AM_I[0],"WHO_AM_I[7:0] provides the device identification register.
+$00 WHO_AM_I error condition.
+$01 Generic open market default value.
+$02 to $FE Customer defined unique values.
+$FF WHO_AM_I not programmed.",,,,,,,
+        I2C_ADDR,0x09,R,0x08,0x00,-,ADDR[6],ADDR[5],ADDR[4],ADDR[3],ADDR[2],ADDR[1],ADDR[0],"I2C Configured Address - default after reset = $60 After that, users may write any non-zero value to it. This nonzero value is used until the device is reset and will revert back to default. Bit 7 identifies a Read or Write operation.
+$60 = default loaded at exit of reset.
+$00 = lowest address value.
+$7F = highest address value.",,,,,,,

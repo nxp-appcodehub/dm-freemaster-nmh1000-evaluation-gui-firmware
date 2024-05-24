@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../css/bootstrap.css">
+ 
+  <!-- JavScript -->
+  <!-- FreeMASTER -->
+  <script type="text/javascript" src="../../js/simple-jsonrpc-js.js"></script>
+  <script type="text/javascript" src="../../js/fmng-client.js"></script>
+  
+  <!-- DOM manipulation -->
+  <script type="text/javascript" src="../../js/jquery-3.4.1.js"></script>      <!-- jQuery v3.4.1 -> https://jquery.com/download/ -->
+  <script type="text/javascript" src="../../js/d3.min.js"></script>
+  
+  <!-- UI -->
+  <script type="text/javascript" src="../../js/popper.js"></script>            <!-- Popper.JS 1.15 -> https://github.com/FezVrasta/popper.js/releases -->
+  <script type="text/javascript" src="../../js/bootstrap.js"></script>         <!-- Bootstrap v4.3.1 -> https://getbootstrap.com/docs/4.3/getting-started/download/ -->
+  <script type="text/javascript" src="../../js/Chart.bundle.js"></script>      <!-- ChartJS v2.7.2 -> https://github.com/chartjs/Chart.js/releases -->
+  
+  <!-- Utility -->
+  <script type="text/javascript" src="../../js/jquery.csv.js"></script>
+  <script type="text/javascript" src="../../js/FileSaver.js"></script>
+  <script type="text/javascript" src="../../js/register-tab.js"></script>
+
+  <!-- Thermometer -->
+  <script type="text/javascript" src="../../js/jquery-ui-1.12.1.js"></script>
+  <script type="text/javascript" src="../../js/jquery.thermometer.js"></script> <!-- jQuery Thermometer -> http://david.dupplaw.me.uk/developer/jquery-thermometer -->
+</head>
+<body onload="start_page()">
+  <div class="header">
+    <!-- <a href="http://www.nxp.com" target="_BLANK"><img src="../../resources/nxp_logo.png" align="right" alt="NXP logo" /></a>-->
+    <h1>FreeMASTER NMH1000 Magnetic Switch Demo</h1>
+  </div>
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+      <a class="nav-link active" href="#demo-tab">NMH1000 Magnetic Switch Demo</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#register-tab">NMH1000 Register Page</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="demo-tab">
+      <div class="body">
+        <h3>FreeMASTER FRDM-KE15Z-NMH1000 Demo</h3>
+        <ul class="simple">
+          <li>This Demo is using the Hall Switch 3 Click board having the NMH1000 Magnetic Switch connected to FRDM-MCXA153 (refer to Demo Details tab for more details)</li>
+          <li>The demo showcases reading of the NMH1000 registers, embedded events and communicating to host using the FreeMASTER serial communication driver.</li>
+          <li>The demo also showcases updating NMH1000 registers configuration from host using FreeMASTER serial communication driver.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-pane" id="register-tab">
+      <div class="body">
+        <a href="https://www.nxp.com/products/sensors/magnetic-sensors/nmh1000-ultra-low-power-and-low-voltage-magnetic-switch:NMH1000" target="_blank">NMH1000 Sensor DataSheet: Quick Reference</a>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            NMH1000 Sensor Register Map
+            <div class="container tree-container"></div>
+          </div>
+          <div class="col-6">
+            Register Bit-Fields Details
+            <div class="container table-container">
+              <div class="row">
+                <div class="col-table">Bit-7</div>
+                <div class="col-table">Bit-6</div>
+                <div class="col-table">Bit-5</div>
+                <div class="col-table">Bit-4</div>
+                <div class="col-table">Bit-3</div>
+                <div class="col-table">Bit-2</div>
+                <div class="col-table">Bit-1</div>
+                <div class="col-table">Bit-0</div>
+              </div>
+              <div id="reg_decs" class="row">
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+                <div class="col-table">-</div>
+              </div>
+              <div id="reg_val" class="row">
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+                <div class="col-table">0</div>
+              </div>
+            </div>
+            <BR>
+            Register Bit-Fields Description
+            <div id="description" class="container table-container">
+              <div class="row bordered header">
+                Description
+              </div>
+            </div>
+          </div>
+          <div class="col-2 form-controls">
+            <div class="form-group">
+              <button id="read" class="btn btn-outline-warning btn-block" type="button"><img src="../../resources/read.png"></img>Read</button>
+              <button id="write" class="btn btn-outline-warning btn-block" type="button"><img src="../../resources/write.png"></img>Write</button>
+              <button id="readAll" class="btn btn-outline-warning btn-block" type="button"><img src="../../resources/read all.png"></img>Read All</button>
+              <button id="saveConfig" class="btn btn-outline-secondary btn-block" type="button"><img src="../../resources/save.png"></img>Save Config</button>
+              <button id="loadConfig" class="btn btn-outline-secondary btn-block" type="button"><img src="../../resources/load.png"></img>Load Config</button>
+              <input id="openCSV" type="file" style="display: none;" accept=".csv" /> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    var pcm;
+
+    function start_page() {
+      pcm = new PCM("localhost:41000", init);
+
+      $('.nav-link').on('click', function (e) {
+        e.preventDefault();
+        if (this.hash == "#demo-tab") {
+          // restart the loop is demo tab was activated
+          clearInterval(timer);
+          timer = setInterval(main_tab_loop, 100);
+          console.log('new interval created');
+        } else {
+          // overwise stop the loop to save bandwidth
+          clearInterval(timer);
+          timer = setInterval(register_tab_loop, 100);
+          console.log('interval cleared');
+        }
+        $(this).tab('show');
+      });
+      register_tab_event_handlers();
+    }
+
+    var timer;
+    var offx;
+    var offy;
+    var offz;
+    var rmsx;
+    var rmsy;
+    var rmsz;
+    var accel_flag;
+
+    var x_stoc;
+    var y_stoc;
+    var z_stoc;
+    var x_stof;
+    var y_stof;
+    var z_stof;
+    var selftest_flag;
+
+    var toggle = 0;
+    var trigger_accel_offnoise = 1;
+    var trigger_selftest = 1;
+    var reading = false;
+    var freefall_prev = 0; // prev free fall counter
+    var freefall = 0; // new free fall counter
+    var tap_prev = 0; // prev tap counter
+    var tap = 0; // new tap counter
+    var orient_prev = 0; // prev orient change counter
+    var orient = 0; // new orient change counter
+    var vecm_prev = 0; // prev vecm change counter
+    var vecm = 0; // new vecm change counter
+
+    var temp;
+
+    function init() {
+      timer = setInterval(main_tab_loop, 100);
+
+      // load register data on startup
+      load_local_csv();
+    }
+
+    function main_tab_loop() {
+
+      if (reading) {
+        return;
+      }
+
+      reading = true;
+      Promise.all([
+
+      ]).finally(() => {
+        reading = false;
+      });
+	  }
+  </script>
+
+</body>
+</html>
